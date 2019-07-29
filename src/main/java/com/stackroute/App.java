@@ -1,5 +1,6 @@
 package com.stackroute;
 
+import com.stackroute.demo.BeanLifecycleDemoBean;
 import com.stackroute.domain.ConfigClass;
 import com.stackroute.domain.Movie;
 import org.springframework.context.ApplicationContext;
@@ -22,17 +23,13 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 
-public class App
-{
-    public static void main( String[] args )
-    {
 
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ConfigClass.class);
-        Movie movie = applicationContext.getBean("movie",Movie.class);
-        System.out.println(movie);
+public class App {
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConfigClass.class);
+//        Create a BeanLifeCycleDemo bean
+        BeanLifecycleDemoBean beanLifecycleDemoBean = context.getBean("beanLifecycleDemoBean", BeanLifecycleDemoBean.class);
 
     }
 }
-
-
 
