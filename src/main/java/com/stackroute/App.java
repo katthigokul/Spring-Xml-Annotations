@@ -1,14 +1,11 @@
 package com.stackroute;
 
-import com.stackroute.domain.Actor;
 import com.stackroute.domain.ConfigClass;
 import com.stackroute.domain.Movie;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
+
 
 /*Create a Maven project and add required dependency of spring-context 5.1.4.RELEASE
         Create a Main class in package com.stackroute and two Spring Beans – Movie, and Actor in
@@ -23,17 +20,19 @@ import org.springframework.core.io.ClassPathResource;
         2. Using Spring 3.2 BeanDefinitionRegistry and BeanDefinitionReader
         3. Using ApplicationContext*/
 
-@ComponentScan(basePackages = "com.stackroute.domain")
 
 
-public class App {
-    public static void main(String[] args) {
-
+public class App
+{
+    public static void main( String[] args )
+    {
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ConfigClass.class);
-        Movie movie = applicationContext.getBean("movie", Movie.class);
+        Movie movie = applicationContext.getBean("movie",Movie.class);
         System.out.println(movie);
 
     }
-
 }
+
+
+
