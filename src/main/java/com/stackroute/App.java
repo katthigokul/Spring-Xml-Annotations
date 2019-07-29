@@ -27,14 +27,13 @@ import org.springframework.core.io.ClassPathResource;
 
 
 public class App {
-    public static void main( String[] args )
-    {
+    public static void main(String[] args) {
+
+
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ConfigClass.class);
-        Movie movie = applicationContext.getBean( Movie.class);
-
-
-
+        Movie movie = applicationContext.getBean("movie", Movie.class);
         System.out.println(movie);
 
     }
+
 }

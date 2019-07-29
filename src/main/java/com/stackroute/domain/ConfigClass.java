@@ -1,13 +1,23 @@
 package com.stackroute.domain;
 
-import org.springframework.context.annotation.ComponentScan;
+import com.stackroute.domain.Actor;
+import com.stackroute.domain.Movie;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@ComponentScan(basePackages = "com.stackroute.domain")
-@PropertySource("literalvalues.properties")
 public class ConfigClass {
-    Actor actor = new Actor();
+
+    @Bean
+    public Actor getActor() {
+        return new Actor();
+    }
+
+    @Bean(name = {"movie"})
+    public Movie getMovie() {
+        Movie movie = new Movie();
+        movie.setActor(getActor());
+        return new Movie();
+    }
 
 }
